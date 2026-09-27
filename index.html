@@ -3,11 +3,94 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Matteo Roda</title>
+  <meta name="theme-color" content="#121719">
+  <meta name="description" content="Matteo Roda's corner of the internet is under construction. The LeetCode lab is already open.">
+  <title>Matteo Roda — something is brewing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#121719;--paper:#f2f0e8;--ink:#172024;--lime:#ccfa6b;--orange:#ff885c;--muted:#a6b2ad}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100svh;background:var(--bg);color:var(--paper);font-family:"DM Sans",system-ui,sans-serif;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:radial-gradient(#d8e3d9 0.6px,transparent .6px);background-size:7px 7px;z-index:0}
+    a{color:inherit}
+    .shell{position:relative;z-index:1;width:min(1200px,calc(100% - 64px));margin:auto;min-height:100svh;display:flex;flex-direction:column}
+    header{height:104px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff25}
+    .logo{display:inline-flex;align-items:center;gap:14px;text-decoration:none;font-family:"Space Grotesk",sans-serif;font-weight:700;letter-spacing:-.055em;font-size:24px}
+    .logo-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--lime);color:var(--ink);font-size:23px;transform:rotate(-13deg)}
+    .top-note{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);display:flex;align-items:center;gap:10px}
+    .blink{height:9px;width:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 18px var(--lime);animation:pulse 2s infinite}
+    main{flex:1;display:grid;grid-template-columns:1.1fr .9fr;gap:7%;align-items:center;padding:88px 0 98px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:10px 15px;border:1px solid #ffffff35;border-radius:30px;color:var(--lime);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .eyebrow svg{width:17px;height:17px}
+    h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(66px,8.4vw,128px);line-height:.93;letter-spacing:-.09em;margin:30px 0 31px;font-weight:700}
+    h1 .accent{color:var(--lime);display:inline-block;position:relative}
+    h1 .accent::after{content:"";position:absolute;left:4%;right:0;bottom:-13px;border-bottom:5px solid var(--orange);transform:rotate(-2deg);border-radius:50%}
+    .intro{font-size:clamp(17px,1.7vw,21px);line-height:1.6;color:#c3cec8;max-width:600px;margin:0 0 36px}
+    .actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px}
+    .button{min-height:56px;padding:0 23px;display:inline-flex;align-items:center;justify-content:center;gap:15px;border-radius:10px;font-weight:700;text-decoration:none;transition:transform .2s,background .2s,color .2s}
+    .button:hover,.button:focus-visible{transform:translateY(-3px)}
+    .primary{background:var(--lime);color:var(--ink)}
+    .primary:hover{background:#e1ffa0}
+    .secondary{border:1px solid #ffffff55;color:var(--paper)}
+    .secondary:hover{background:#ffffff16}
+    .arrow{font-size:22px;line-height:1}
+    .smallprint{font-size:13px;color:var(--muted);margin:23px 0 0}
+    .scene{position:relative;min-height:490px;display:grid;place-items:center}
+    .orbit{position:absolute;width:min(100%,480px);aspect-ratio:1;border-radius:50%;border:1px dashed #ffffff2c;animation:spin 42s linear infinite}
+    .orbit::before,.orbit::after{content:"";position:absolute;width:9px;height:9px;background:var(--lime);border-radius:50%;top:14%;left:14%}
+    .orbit::after{background:var(--orange);top:auto;left:auto;right:10%;bottom:18%}
+    .ticket{width:min(100%,390px);min-height:360px;background:var(--paper);color:var(--ink);border-radius:19px;box-shadow:18px 20px 0 #26302d,26px 28px 0 #89a46a;transform:rotate(6deg);padding:29px 30px 24px;position:relative;animation:float 5s ease-in-out infinite}
+    .ticket::before{content:"";position:absolute;top:69px;left:-8px;width:16px;height:16px;border-radius:50%;background:var(--bg);box-shadow:390px 0 var(--bg)}
+    .ticket-head{display:flex;justify-content:space-between;align-items:center;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;border-bottom:2px dashed #aeb7aa;padding-bottom:20px}
+    .ticket-num{color:#64736a}
+    .cone{width:110px;height:114px;margin:28px auto 15px;position:relative;filter:drop-shadow(5px 7px 0 #d2d6c9)}
+    .cone-body{position:absolute;bottom:14px;left:19px;width:72px;height:98px;clip-path:polygon(37% 0,63% 0,100% 100%,0 100%);background:repeating-linear-gradient(to bottom,var(--orange) 0 25px,#fff2dc 25px 41px,var(--orange) 41px 67px)}
+    .cone-base{position:absolute;bottom:4px;left:5px;width:100px;height:15px;border-radius:3px;background:#25312b}
+    .ticket h2{font-family:"Space Grotesk",sans-serif;font-size:28px;line-height:1.05;letter-spacing:-.065em;text-align:center;margin:0}
+    .ticket p{text-align:center;color:#57635c;font-size:14px;line-height:1.5;margin:11px 0 0}
+    .ticket-stamp{position:absolute;right:-21px;top:115px;background:var(--lime);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.12em;padding:13px 17px;border:2px solid var(--ink);border-radius:50%;transform:rotate(15deg)}
+    .spark{position:absolute;font-family:"Space Grotesk",sans-serif;font-size:38px;color:var(--orange);font-weight:700}.spark.one{top:4%;right:12%;transform:rotate(19deg)}.spark.two{bottom:7%;left:2%;color:var(--lime);transform:rotate(-16deg)}
+    .status{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:26px 0;border-top:1px solid #ffffff25;color:var(--muted);font-size:13px}
+    .status strong{color:var(--paper);font-weight:600}
+    .status a{text-decoration:none;text-underline-offset:4px}.status a:hover{color:var(--lime)}
+    @keyframes pulse{50%{opacity:.35;transform:scale(.75)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes float{50%{transform:rotate(3deg) translateY(-12px)}}
+    @media(max-width:850px){.shell{width:min(680px,calc(100% - 40px))}main{grid-template-columns:1fr;padding:68px 0 70px;gap:45px}.scene{min-height:410px}.orbit{width:400px;max-width:100%}h1{font-size:clamp(66px,13vw,105px)}}
+    @media(max-width:460px){header{height:82px}.top-note{font-size:0}.blink{width:10px;height:10px}main{padding-top:55px}h1{font-size:clamp(62px,16vw,78px)}.scene{min-height:350px}.ticket{width:290px;min-height:315px;padding:23px 22px}.ticket::before{box-shadow:290px 0 var(--bg)}.cone{margin:21px auto 8px;transform:scale(.85)}.ticket h2{font-size:23px}.ticket-stamp{right:-14px;font-size:9px}.status{align-items:flex-start;flex-direction:column;gap:8px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+  </style>
 </head>
 <body>
-  <h1>Matteo Roda</h1>
-  <p>My personal website is coming soon.</p>
-  <p><a href="/leetcode/">Explore my LeetCode dashboard</a></p>
+  <div class="shell">
+    <header>
+      <a class="logo" href="/" aria-label="Matteo Roda homepage"><span class="logo-mark" aria-hidden="true">m.</span><span>matteo roda</span></a>
+      <span class="top-note"><span class="blink" aria-hidden="true"></span> site status: in progress</span>
+    </header>
+    <main>
+      <section aria-labelledby="headline">
+        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m14 4 6 6M4 20l7-2 9-9-5-5-9 9-2 7Z"/></svg> currently assembling the internet</span>
+        <h1 id="headline">Good things<br>take <span class="accent">a minute.</span></h1>
+        <p class="intro">Hi, I’m Matteo. My proper website is under construction, but I couldn’t leave this domain sitting here doing nothing. The LeetCode corner is already open.</p>
+        <div class="actions">
+          <a class="button primary" href="/leetcode/">Explore the LeetCode lab <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="https://github.com/matteoroda05" target="_blank" rel="noopener noreferrer">Find me on GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <p class="smallprint">No launch countdown. I know better than to promise a date to CSS.</p>
+      </section>
+      <div class="scene" aria-hidden="true">
+        <div class="orbit"></div><span class="spark one">✳</span><span class="spark two">✦</span>
+        <div class="ticket">
+          <div class="ticket-head"><span>WORK ORDER / 001</span><span class="ticket-num">MR—2026</span></div>
+          <div class="cone"><div class="cone-body"></div><div class="cone-base"></div></div>
+          <h2>Something good<br>is loading.</h2>
+          <p>Hard hat optional.<br>Curiosity encouraged.</p>
+          <div class="ticket-stamp">IN PROGRESS</div>
+        </div>
+      </div>
+    </main>
+    <footer class="status"><span><strong>Matteo Roda</strong> · Building the rest as we speak.</span><span>Meanwhile: <a href="/leetcode/">the LeetCode lab is open ↗</a></span></footer>
+  </div>
 </body>
 </html>
